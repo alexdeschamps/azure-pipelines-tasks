@@ -9,11 +9,6 @@ async function run() {
     try {
         tl.setResourcePath(path.join(__dirname, 'task.json'));
 
-        // Check platform is macOS since demands are not evaluated on Hosted pools
-        if (os.platform() !== 'darwin') {
-            throw new Error(tl.loc('InstallRequiresMac'));
-        }
-
         let keychain: string = tl.getInput('keychain');
         let keychainPath: string = tl.getTaskVariable('APPLE_CERTIFICATE_KEYCHAIN');
 
